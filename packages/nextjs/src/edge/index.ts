@@ -95,8 +95,7 @@ export function init(options: VercelEdgeOptions = {}): void {
   });
 
   try {
-    // @ts-expect-error `process.turbopack` is a magic string that will be replaced by Next.js
-    if (process.turbopack) {
+    if (process.env.TURBOPACK) {
       getGlobalScope().setTag('turbopack', true);
     }
   } catch {
